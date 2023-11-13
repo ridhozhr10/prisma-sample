@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Branch {
+  id        Int      @id @default(autoincrement())
+  name      String
+  location  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// enum Program {
+//   JCWD
+//   JCDS
+//   JCDM
+//   JCUIUX
+//   JCVD
+// }
+
+// model Class {
+//   id        Int       @id @default(autoincrement())
+//   branchId  Int
+//   Branch    Branch    @relation(fields: [branchId], references: [id])
+//   name      String
+//   startAt   DateTime?
+//   endAt     DateTime?
+//   createdAt DateTime  @default(now())
+//   updatedAt DateTime  @updatedAt
+// }
+
+// model Student {
+//   id          Int      @id @default(autoincrement())
+//   username    String   @unique
+//   fullname    String?
+//   email       String   @unique
+//   password    String
+//   isGraduated Boolean  @default(false)
+//   program     Program  @default(JCWD)
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+// }
+
+// model Lecturer {
+//   id        Int      @id @default(autoincrement())
+//   username  String   @unique
+//   fullName  String?
+//   email     String   @unique
+//   password  String
+//   isActive  Boolean  @default(false)
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
